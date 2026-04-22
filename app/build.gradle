@@ -1,31 +1,21 @@
-apply plugin: 'com.android.application'
-
-android {
-    compileSdkVersion 28
-
-    defaultConfig {
-        applicationId "com.oldtv.youtubetv"
-        // Android 5.1.1 = API 22
-        minSdkVersion 22
-        targetSdkVersion 28
-        versionCode 1
-        versionName "1.0"
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
     }
-
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
-    }
-
-    // Needed for older Gradle toolchains
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+    dependencies {
+        classpath 'com.android.tools.build:gradle:4.1.3'
     }
 }
 
-dependencies {
-    // No extra deps needed — pure Android SDK WebView
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+        maven { url 'https://download.01.org/crosswalk/releases/crosswalk/android/maven2' }
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
 }
