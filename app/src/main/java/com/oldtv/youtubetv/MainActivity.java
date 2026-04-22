@@ -21,7 +21,7 @@ public class MainActivity extends Activity {
     private ProgressBar progressBar;
 
     // Use a lightweight fallback page instead of YouTube TV
-    private static final String HOME_URL = "https://www.google.com";
+    private static final String HOME_URL = "https://www.youtube.com";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
